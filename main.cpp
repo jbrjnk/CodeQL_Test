@@ -9,6 +9,7 @@ void buggyFunction2() {
 void useAfterFree() {
     int* ptr = new int(10);
     delete ptr;
+    // codeql [cpp/use-after-free]
     std::cout << *ptr << std::endl; // Use after free
 }
 
