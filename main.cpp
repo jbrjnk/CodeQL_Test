@@ -2,6 +2,9 @@
 #include <cstring>
 
 // Comment
+// Comment 2
+// Comment 3
+// Comment 4
 
 void buggyFunction() {
     char buffer[10];
