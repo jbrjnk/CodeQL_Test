@@ -14,7 +14,7 @@ void useAfterFree() {
 
 void DoSomething()
 {
-    std::cout << "hello world";
+    std::cout << "hello world 2";
 }
 
 int main() {
