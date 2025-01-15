@@ -19,9 +19,17 @@ void useAfterFree() {
     std::cout << *ptr << std::endl; // Use after free
 }
 
+void anotherUseAfterFree() {
+    int* ptr = new int(10);
+    delete ptr;
+    std::cout << *ptr << std::endl; // Use after free
+}
+
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
     buggyFunction2();
     useAfterFree();
+    anotherUseAfterFree();
     return 0;
 }
