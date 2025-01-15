@@ -1,12 +1,18 @@
 #include <iostream>
 #include <cstring>
 
-void buggyFunction() {
-    char buffer[10];
-    std::strcpy(buffer, "This is a very long string that will overflow the buffer");
+
+
+
+
+
+void useAfterFree() {
+    int* ptr = new int(10);
+    delete ptr;
+    std::cout << *ptr << std::endl; // Use after free
 }
 
 int main() {
-    buggyFunction();
+    useAfterFree();
     return 0;
 }
