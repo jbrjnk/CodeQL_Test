@@ -12,7 +12,13 @@ void useAfterFree() {
     std::cout << *ptr << std::endl; // Use after free
 }
 
+void DoSomething()
+{
+    std::cout << "hello";
+}
+
 int main() {
+    DoSomething();
     useAfterFree();
     buggyFunction2();
     return 0;
