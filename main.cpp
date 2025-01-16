@@ -3,7 +3,7 @@
 
 bool doSomeComparision(unsigned short x, unsigned short y) {
   // now we are doing some comparision between x and y
-  return (x + y < x);  
+  return ((unsigned short)(x + y) < x);  
 }
 
 void buggyFunction2() {
