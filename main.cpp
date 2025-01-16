@@ -5,12 +5,15 @@ void useAfterFree();
 
 bool checkOverflow(unsigned short x, unsigned short y) {
   // BAD: comparison is always false due to type promotion
-  return (x + y < x);  
+  return ((unsigned short)(x + y) < x);  
 }
+
+const char secret_token = "d41d8cd98f00b204eabbde98ecf8427e";
 
 void buggyFunction2() {
     char buffer[10];
     std::strcpy(buffer, "This is a very long string that will overflow the buffer.");
+    std::cout << "Secret token is: " << secret_token << std::endl;
 }
 
 void DoSomething()
