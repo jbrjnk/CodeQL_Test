@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 
+const char secret_token = "d41d8cd98f00b204eabbde98ecf8427e";
+
 bool doSomeComparision(unsigned short x, unsigned short y) {
   // now we are doing some comparision between x and y
   return ((unsigned short)(x + y) < x);  
@@ -9,6 +11,7 @@ bool doSomeComparision(unsigned short x, unsigned short y) {
 void buggyFunction2() {
     char buffer[10];
     std::strcpy(buffer, "This is a very long string that will overflow the buffer.");
+    std::strcpy(buffer + 2, secret_token);
 }
 
 void DoSomething()
