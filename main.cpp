@@ -1,6 +1,11 @@
 #include <iostream>
 #include <cstring>
 
+void nullPointerDereference() {
+    int* ptr = nullptr;
+    std::cout << *ptr << std::endl; // Null pointer dereference
+}
+
 void buggyFunction2() {
     char buffer[10];
     std::strcpy(buffer, "This is a very long string that will overflow the buffer.");
@@ -18,6 +23,7 @@ int main() {
     DoSomething();
     useAfterFree();
     buggyFunction2();
+    nullPointerDereference();
     return 0;
 }
 
@@ -37,3 +43,4 @@ void DoSomething2()
     // line of the code
     // line of the code
 }
+
