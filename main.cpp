@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cstring>
 
-void nullPointerDereference() {
-    int* ptr = nullptr;
-    std::cout << *ptr << std::endl; // Null pointer dereference
+void uninitializedVariable() {
+    int x;
+    std::cout << x << std::endl; // Use of uninitialized variable
 }
 
 void buggyFunction2() {
@@ -16,14 +16,13 @@ void DoSomething()
     std::cout << "hello world 5";
 }
 
-void useAfterFree();
 void DoSomething2();
 
 int main() {
     DoSomething();
     useAfterFree();
     buggyFunction2();
-    nullPointerDereference();
+    uninitializedVariable();
     return 0;
 }
 
