@@ -6,21 +6,34 @@ void buggyFunction2() {
     std::strcpy(buffer, "This is a very long string that will overflow the buffer xxyyzz");
 }
 
-void useAfterFree() {
-    int* ptr = new int(10);
-    delete ptr;
-    // codeql [cpp/use-after-free]
-    std::cout << *ptr << std::endl; // Use after free
-}
-
 void DoSomething()
 {
-    std::cout << "hello world 2";
+    std::cout << "hello world 5";
 }
+
+void useAfterFree();
+void DoSomething2();
 
 int main() {
     DoSomething();
     useAfterFree();
     buggyFunction2();
     return 0;
+}
+
+void useAfterFree() {
+    int* ptr = new int(10);
+    delete ptr; // Free memory
+    std::cout << (*ptr) << std::endl;  // Use after free!
+}
+
+void DoSomething2()
+{
+    // line of the code 1
+    // line of the code
+    // line of the code
+    // line of the code
+    // line of the code
+    // line of the code
+    // line of the code
 }
