@@ -1,9 +1,11 @@
 #include <iostream>
 #include <cstring>
 
-void uninitializedVariable() {
-    int x;
-    std::cout << x << std::endl; // Use of uninitialized variable
+void useAfterFree();
+
+bool checkOverflow(unsigned short x, unsigned short y) {
+  // BAD: comparison is always false due to type promotion
+  return (x + y < x);  
 }
 
 void buggyFunction2() {
@@ -22,7 +24,7 @@ int main() {
     DoSomething();
     useAfterFree();
     buggyFunction2();
-    uninitializedVariable();
+    checkOverflow(10,20);
     return 0;
 }
 
